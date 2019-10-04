@@ -101,14 +101,16 @@
         @endif
 
         <div class="content">
-            <div class="title m-b-md">
-                Guest book
+            <div class="title m-b-md is-primary">
+                The Guestbook
+
                 <p class="versioninfo">Version {{ app()->version() }}</p>
             </div>
 
-
         </div>
+
     </div>
+
 </body>
 
 </html>
