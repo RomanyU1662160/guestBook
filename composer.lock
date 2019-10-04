@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3f43a645b4cb3d85ae04049046b0845a",
+    "content-hash": "7168386acbaf0a1e205d8183f7b55792",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -467,6 +467,48 @@
             ],
             "description": "Highlight PHP code in terminal",
             "time": "2018-09-29T18:48:56+00:00"
+        },
+        {
+            "name": "laravel-frontend-presets/bulma",
+            "version": "v3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-frontend-presets/bulma.git",
+                "reference": "91677d836cea9bd0a356f474732220523cd08402"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-frontend-presets/bulma/zipball/91677d836cea9bd0a356f474732220523cd08402",
+                "reference": "91677d836cea9bd0a356f474732220523cd08402",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "LaravelFrontendPresets\\BulmaPreset\\BulmaPresetServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "LaravelFrontendPresets\\BulmaPreset\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Bulma Frontend Preset For Laravel Framework 6.0 and Up",
+            "keywords": [
+                "bulma",
+                "laravel",
+                "preset"
+            ],
+            "time": "2019-09-07T17:36:35+00:00"
         },
         {
             "name": "laravel/framework",
