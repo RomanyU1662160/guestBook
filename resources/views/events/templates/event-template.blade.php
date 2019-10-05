@@ -12,12 +12,12 @@
     <footer class="card-footer">
         <p class="card-footer-item">
             <span>
-                <a href="#">Event Details</a>
+                <a href="{{route('event.show', $event)}}"> Event details </a>
             </span>
         </p>
         <p class="card-footer-item is-warning">
             <span>
-                More events from: <a href="#"> {{$event->user->fname. " " .  $event->user->lname}}</a>
+                More events from: <a href="{{route('event.show', $event)}}"> {{$event->user->fname. " " .  $event->user->lname}}</a>
             </span>
         </p>
     </footer>

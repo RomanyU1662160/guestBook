@@ -7,10 +7,11 @@ use App\Models\Like;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 
+
 class Post extends Model
 {
     protected $fillable = [
-        body, user_id
+        'message', 'user_id'
     ];
 
     //Elequent relationship with the User table "1-0"

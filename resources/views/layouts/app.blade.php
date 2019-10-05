@@ -20,6 +20,7 @@
 
         @include('layouts.partials.nav')
         <div class="container">
+            @include('layouts.partials.flashes')
             @yield('content')
         </div>
     </div>

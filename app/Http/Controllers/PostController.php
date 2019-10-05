@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreNewEvent;
+use Auth;
+use App\models\Post;
 use App\Models\Event;
-use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Carbon\carbon;
+use Illuminate\Support\Facades\Validator;
 
-class EventController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +17,8 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::all();
-        return view('events.index', compact('events'));
+        $posts = Post::paginate(6);
+        return view('posts.index', compact('posts'));
     }
 
     /**
@@ -29,7 +28,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('events.addnew');
+        //
     }
 
     /**
@@ -38,28 +37,33 @@ class EventController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreNewEvent $request)
+    public function store(Request $request, Event $event)
     {
-
-        $event = new Event([
-            'title' => $request->input('title'),
-            'date' => $request->input('date'),
-            'body' => $request->input('body')
+        // Validator::make($request->all(), [
+        //     'message' => 'required|max:255',
+        // ])->validate();
+        $request->validate([
+            'message' => 'required|max:255',
         ]);
-        Auth::user()->events()->save($event);
 
-        return redirect()->back()->with('success', ' New event has been added');
+        $post = new Post([
+            'message' => $request->input('message'),
+            'user_id' => Auth::user()->id
+        ]);
+        $event->posts()->save($post);
+
+        return redirect()->back()->with('success', ' New post has been added')->with('event', $event);
     }
+
     /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Event $event)
+    public function show($id)
     {
-        $posts = $event->posts()->get();
-        return view('events.eventdetails', compact(['event', 'posts']));
+        //
     }
 
     /**

@@ -23,4 +23,13 @@ Route::group(['prefix' => 'events', 'middleware' => 'auth', 'as' => 'event'], fu
     Route::get('/all', "Eventcontroller@index")->name('.all');
     Route::get('/addnew', "Eventcontroller@create")->name('.addNew');
     Route::post('/addnew', "Eventcontroller@store");
+    Route::get('/event/{event}', "EventController@show")->name('.show');
 });
+
+Route::group(
+    ['prefix' => "post", 'middleware' => 'auth', 'as' => 'post'],
+    function () {
+        Route::get('/all', "Postcontroller@index")->name('.all');
+        Route::post('/addpost/{event}', 'PostController@store')->name('.addNew');
+    }
+);
