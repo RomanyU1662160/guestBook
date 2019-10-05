@@ -19,7 +19,10 @@
     <div id="app">
 
         @include('layouts.partials.nav')
-        @yield('content')
+        <div class="container">
+            @include('layouts.partials.flashes')
+            @yield('content')
+        </div>
     </div>
 
     <!-- Scripts -->
