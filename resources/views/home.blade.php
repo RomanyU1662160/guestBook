@@ -88,8 +88,13 @@
 </head>
 
 <body>
+    <nav>
+        @include('layouts.partials.nav')
+    </nav>
     <div class="flex-center position-ref full-height">
-        @if (Route::has('login'))
+
+        <!-- @if (Route::has('login'))
+
         <div class="top-right links">
             @if (Auth::check())
             <a href="{{ url('/home') }}">Home</a>
@@ -98,9 +103,14 @@
             <a href="{{ url('/register') }}">Register</a>
             @endif
         </div>
-        @endif
+        @endif -->
+
+
 
         <div class="content">
+
+
+
             <div class="title m-b-md is-primary">
                 The Guestbook
 
